@@ -2,6 +2,10 @@ FROM ubuntu:24.04
 
 LABEL maintainer="MPAP"
 
+RUN mkdir -p /dados/www/
+
+#ORKDIR /dados/www
+
 ENV DEBIAN_FRONTEND=noninteractive 
 
 ENV TZ=Etc/UTC
@@ -47,6 +51,8 @@ RUN composer global require laravel/installer
 RUN rm /etc/nginx/sites-enabled/*
 
 COPY ./nginx.conf /etc/nginx/sites-enabled/nginx.conf
+
+COPY /dados/www/awsecr_app_mapas/. /dados/www/awsecr_app_mapas/.
 
 RUN echo 'PS1="APP_MAPAS_MPAP:$PS1>"' >> /root/.bashrc
 
