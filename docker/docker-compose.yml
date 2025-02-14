@@ -1,0 +1,12 @@
+services:
+    awsecr_app_maps:
+        build: 
+            .
+        image: 
+            awsecr_app_maps:latest
+        container_name: 
+            awsecr_app_maps
+        restart: 
+            always    
+        tty: 
+            true            
